@@ -51,25 +51,27 @@ Design Principle:
 The LLM is treated as an untrusted component and validated deterministically.
 
 📁 Project Structure
+
 multi_modal_prompt_refiner/
 │
-├── main.py        # Streamlit UI entry point
-├── main2.py       # Terminal execution entry point
+├── README.md                # <--- ADD THIS FILE HERE (Project Documentation)
+├── requirements.txt         # Dependencies list
+├── .env                     # API Keys (GitIgnore this in real projects)
+├── main.py                  # Streamlit App (UI)
+├── main2.py                 # Terminal Script
 │
-├── refiner/
+├── refiner/                 # Source Code Package
+│   ├── __init__.py
 │   ├── input_classifier.py
 │   ├── text_processor.py
 │   ├── image_processor.py
 │   ├── document_processor.py
-│   ├── validator.py        # Validation Guardrail (Pydantic)
+│   ├── validator.py
 │   └── prompt_template.py
 │
-├── samples/
-│   ├── sample_text.txt
-│   └── sample_image.png
-│
-├── requirements.txt
-└── README.md
+└── samples/                 # Test Data
+    ├── sample_text.txt
+    └── sample_image.png
 
 
 ▶️ How to Run the Project
