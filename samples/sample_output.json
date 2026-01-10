@@ -1,0 +1,32 @@
+{
+  "prompt_metadata": {
+    "confidence_level": "Medium",
+    "missing_information": [],
+    "assumptions_made": [
+      "Image-based requirements are inferred heuristically"
+    ]
+  },
+  "core_intent": {
+    "problem_statement": "Build an AI tool that converts sketches into structured prompts",
+    "primary_goal": "Refined AI-ready prompt generation"
+  },
+  "functional_requirements": [
+    {
+      "requirement": "Build an AI tool that converts sketches into structured prompts",
+      "priority": "Medium",
+      "source": "Text"
+    }
+  ],
+  "technical_constraints": {
+    "platform": "Unknown",
+    "performance_constraints": "Unknown",
+    "design_constraints": "Unknown"
+  },
+  "expected_outputs": {
+    "deliverables": [
+      "Structured prompt"
+    ],
+    "format": "JSON"
+  },
+  "rejection_reason": null
+}
