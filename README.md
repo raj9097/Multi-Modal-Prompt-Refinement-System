@@ -6,8 +6,7 @@ This project emphasizes design thinking, validation, and reliability when workin
 
 🎯 Objective
 
-Modern AI systems receive inputs in many formats—free-text ideas, screenshots, sketches, and PDFs.
-Downstream AI pipelines, however, require consistent, structured, and machine-readable prompts.
+Modern AI systems receive inputs in many formats—free-text ideas, screenshots, sketches, and PDFs. Downstream AI pipelines, however, require consistent, structured, and machine-readable prompts.
 
 This project aims to:
 
@@ -24,6 +23,20 @@ This project aims to:
 - ✅ Explicit ambiguity handling
 - ✅ Rejection of irrelevant inputs
 - ✅ Two execution modes (UI & Terminal)
+
+🏷️ Tech Stack & Libraries
+
+- Language: Python (primary language for the application and processing pipeline)
+- App / UI: Streamlit (web UI for interactive mode)
+- OCR / Image processing: pytesseract, Pillow
+- Document / PDF parsing: PyPDF2, python-docx
+- Validation / Schema: pydantic (guardrail validation)
+- Visualization / helpers (observed in environment): pydeck, altair, pyarrow
+- Environment / Packaging: requirements.txt, virtualenv/venv
+
+Observed (mentioned or present in venv but not necessarily used in core code): openai, langchain, transformers, torch, tensorflow, diffusers, llama_index — these appear in Streamlit runtime metadata lists and indicate common ML/LLM dependencies that may be installed in the environment.
+
+Note: For an authoritative dependency list, inspect requirements.txt or scan imports across the codebase. See the requirements file: https://github.com/raj9097/Multi-Modal-Prompt-Refinement-System/blob/main/requirements.txt
 
 🏗️ System Architecture
 
@@ -217,6 +230,5 @@ This project demonstrates:
 - Validation-first mindset
 
 The focus is not just on making it work, but on making it reliable, explainable, and safe.
-
 
 -- End of file --
