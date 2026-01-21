@@ -17,68 +17,85 @@ This project aims to:
 
 🧩 Key Features
 
-- ✅ Multi-modal input support (Text, Image, PDF, DOCX)
-- ✅ Structured JSON output
-- ✅ Schema-based validation using Pydantic
-- ✅ Explicit ambiguity handling
-- ✅ Rejection of irrelevant inputs
+- ✅ Multi-modal input support (Text, Image, PDF, DOCX)  
+- ✅ Structured JSON output  
+- ✅ Schema-based validation using Pydantic  
+- ✅ Explicit ambiguity handling  
+- ✅ Rejection of irrelevant inputs  
 - ✅ Two execution modes (UI & Terminal)
 
 🏷️ Tech Stack & Libraries
 
-- Language: Python (primary language for the application and processing pipeline)
-- App / UI: Streamlit (web UI for interactive mode)
-- OCR / Image processing: pytesseract, Pillow
-- Document / PDF parsing: PyPDF2, python-docx
-- Validation / Schema: pydantic (guardrail validation)
-- Visualization / helpers (observed in environment): pydeck, altair, pyarrow
-- Environment / Packaging: requirements.txt, virtualenv/venv
+- Language
+  - Python — primary implementation language
 
-Observed (mentioned or present in venv but not necessarily used in core code): openai, langchain, transformers, torch, tensorflow, diffusers, llama_index — these appear in Streamlit runtime metadata lists and indicate common ML/LLM dependencies that may be installed in the environment.
+- App / UI
+  - Streamlit — interactive web UI (main.py)
 
-Note: For an authoritative dependency list, inspect requirements.txt or scan imports across the codebase. See the requirements file: https://github.com/raj9097/Multi-Modal-Prompt-Refinement-System/blob/main/requirements.txt
+- OCR / Image processing
+  - pytesseract — OCR for images
+  - Pillow — image handling and processing
+
+- Document / PDF parsing
+  - PyPDF2 — PDF reading and parsing
+  - python-docx — .docx parsing
+
+- Validation / Schema
+  - pydantic — schema validation and guardrails
+
+- Data / Visualization / Helpers (observed in environment)
+  - pydeck, altair, pyarrow
+
+- Environment & Packaging
+  - requirements.txt
+  - venv / virtualenv
+  - .env (for API keys — do not commit secrets)
+
+- Observed or referenced in runtime metadata (may be installed in environment but not necessarily used in core code)
+  - openai, langchain, transformers, torch, tensorflow, diffusers, llama_index, and other ML/LLM-related packages
+
+Note: For an authoritative dependency list, check requirements.txt and/or scan actual imports across the codebase:
+https://github.com/raj9097/Multi-Modal-Prompt-Refinement-System/blob/main/requirements.txt
 
 🏗️ System Architecture
 
-Input (Text / Image / Document)
-        ↓
-Input Classification
-        ↓
-Modality-Specific Processing
-        ↓
-Intent Consolidation
-        ↓
-Validation (Pydantic Guardrail)
-        ↓
+Input (Text / Image / Document)  
+        ↓  
+Input Classification  
+        ↓  
+Modality-Specific Processing  
+        ↓  
+Intent Consolidation  
+        ↓  
+Validation (Pydantic Guardrail)  
+        ↓  
 Structured AI-Ready Prompt
 
-
-Design Principle:
+Design Principle:  
 The LLM is treated as an untrusted component and validated deterministically.
 
 📁 Project Structure
 
-multi_modal_prompt_refiner/
-│
-├── README.md                # Project Documentation
-├── requirements.txt         # Dependencies list
-├── .env                     # API Keys (GitIgnore this in real projects)
-├── main.py                  # Streamlit App (UI)
-├── main2.py                 # Terminal Script
-│
-├── refiner/                 # Source Code Package
-│   ├── __init__.py
-│   ├── input_classifier.py
-│   ├── text_processor.py
-│   ├── image_processor.py
-│   ├── document_processor.py
-│   ├── validator.py
-│   └── prompt_template.py
-│
-└── samples/                 # Test Data
-    ├── sample_text.txt
+multi_modal_prompt_refiner/  
+│  
+├── README.md                # Project Documentation  
+├── requirements.txt         # Dependencies list  
+├── .env                     # API Keys (GitIgnore this in real projects)  
+├── main.py                  # Streamlit App (UI)  
+├── main2.py                 # Terminal Script  
+│  
+├── refiner/                 # Source Code Package  
+│   ├── __init__.py  
+│   ├── input_classifier.py  
+│   ├── text_processor.py  
+│   ├── image_processor.py  
+│   ├── document_processor.py  
+│   ├── validator.py  
+│   └── prompt_template.py  
+│  
+└── samples/                 # Test Data  
+    ├── sample_text.txt  
     └── sample_image.png
-
 
 ▶️ How to Run the Project
 
@@ -99,7 +116,6 @@ source venv/bin/activate
 You should see (venv) in your terminal.
 
 2️⃣ Install Dependencies
-
 ```
 pip install -r requirements.txt
 ```
@@ -136,7 +152,7 @@ The refined prompt is printed as structured JSON in the terminal.
 
 Sample files are available in the samples/ directory:
 
-- sample_text.txt
+- sample_text.txt  
 - sample_image.png
 
 These are used in both UI and terminal modes.
@@ -144,17 +160,14 @@ These are used in both UI and terminal modes.
 ⚠️ Notes for Windows Users
 
 Always use:
-
 ```
 python
 ```
-
 Avoid using python3, which may bypass the virtual environment.
 
 📤 Output Format
 
 Successful Output
-
 ```
 {
   "core_intent": "...",
@@ -165,7 +178,6 @@ Successful Output
 ```
 
 Rejection Output
-
 ```
 {
   "rejection_reason": "No clear actionable intent found"
@@ -178,9 +190,9 @@ The core reliability mechanism lives in refiner/validator.py.
 
 Why Pydantic?
 
-- Guarantees machine-readable output
-- Prevents hallucinated or incomplete fields
-- Enforces strict schema contracts
+- Guarantees machine-readable output  
+- Prevents hallucinated or incomplete fields  
+- Enforces strict schema contracts  
 - Fails explicitly and safely
 
 The LLM is probabilistic. Validation must be deterministic.
@@ -213,22 +225,22 @@ Original Contribution
 
 AI was used as a tool, not a decision-maker.
 
-🚀 Future Enhancements
+���� Future Enhancements
 
-- OCR for scanned PDFs
-- Confidence scoring per field
-- FastAPI backend wrapper
-- Persistent storage
+- OCR for scanned PDFs  
+- Confidence scoring per field  
+- FastAPI backend wrapper  
+- Persistent storage  
 - Advanced LLM summarization
 
 ✅ Conclusion
 
 This project demonstrates:
 
-- Structured problem-solving
-- Responsible AI usage
+- Structured problem-solving  
+- Responsible AI usage  
 - Validation-first mindset
 
 The focus is not just on making it work, but on making it reliable, explainable, and safe.
-
+  
 -- End of file --
